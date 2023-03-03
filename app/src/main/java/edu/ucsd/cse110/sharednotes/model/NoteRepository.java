@@ -2,6 +2,7 @@ package edu.ucsd.cse110.sharednotes.model;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
 import java.time.Instant;
@@ -87,6 +88,7 @@ public class NoteRepository {
         // TODO: Set up polling background thread (MutableLiveData?)
         // TODO: Refer to TimerService from https://github.com/DylanLukes/CSE-110-WI23-Demo5-V2.
 
+        var note = new MutableLiveData<Note>();
         // Cancel any previous poller if it exists.
         if (this.poller != null && !this.poller.isCancelled()) {
             poller.cancel(true);
